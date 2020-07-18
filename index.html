@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <h1 style="margin-left: 30%;">Welcome to <b>Number Guessing Game</b></h1>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+</style>
+</head>
+
+
+
+<body >
+<hr><br><br>
+<h2 id="open" style="margin-left: 40%;"><b><br><br><br>Click on Start Game Button<br><br></b></h2>
+<button onclick="start()" class="button" style="margin-left: 45%;">Start Game</button>
+<br><br><br><hr><br>
+
+    <h1 id="demo" style="margin-left: 38%;" >Status : No guesses yet </h1><br>
+    <h1 style="margin-left: 32%;">Enter Guess number : <input type="number" id="n" > </h1><br><br><br>
+
+    <p style="margin-left: 45%;">
+    <button onclick="myFunction()" class="button" id="check">Check</button></p><br>
+    <p style="margin-left: 35%;">
+    <button onclick="hint()" class="button">Reveal Number</button>
+    <button onclick="replay()" class="button ">Play Again</button>
+    <button onclick="end()" class="button">End Game</button>
+  </p>
+
+
+
+
+
+<script>
+    var x = Math.floor((Math.random() * 10) + 1);
+    var s="Status : "
+    function start()
+    {
+        document.getElementById('open').innerHTML = "Enjoy the Game";
+    }
+    function replay()
+    {
+
+      x = Math.floor((Math.random() * 10) + 1);
+      document.getElementById('check').disabled = true;
+      document.getElementById('demo').innerHTML = "Status : No guesses yet";
+    }
+    function myFunction()
+    {
+            var g="Greater";
+            var l="Lesser";
+            var e="Congratulations you won.The Number is "+x+" .Please Press on Play Again or End Game.";
+            if(document.getElementById('n').value<x)
+            {
+          	     document.getElementById('demo').innerHTML = s+g;
+            }
+            else if(document.getElementById('n').value>x)
+            {
+          	     document.getElementById('demo').innerHTML = s+l;
+            }
+            else
+            {
+          	     document.getElementById('demo').innerHTML = s+e;
+            }
+     }
+     function hint()
+     {
+          var e="You Lose . The number was "+x+" .Press Play again or End game.";
+          document.getElementById('demo').innerHTML = s+e;
+          document.getElementById('check').class = "button disabled";
+          document.getElementById('check').disabled = true;
+
+     }
+     function end()
+     {
+          location.reload();
+     }
+</script>
+
+<br><br><br><br><br><br><br><br><br>
+</body>
+
+<footer style="background-color:rgb(16, 16, 16);color:rgb(255, 255, 255);"><hr>
+<br>
+<p style="margin-left: 7%;"> &copy;  2020 | Mehul Lokhande </p>
+<br>
+</footer>
+
+
+</html>
